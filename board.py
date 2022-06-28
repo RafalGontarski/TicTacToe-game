@@ -22,6 +22,7 @@ def display_board(board):
 
 board = get_empty_board()
 display_board(board)
+#w ramach testów, pozdrawiam!!
 
 # def is_board_full(board):
 #   """
