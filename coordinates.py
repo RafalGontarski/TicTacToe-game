@@ -1,4 +1,27 @@
+from string import ascii_uppercase, digits
+
+
 def get_human_coordinates(board, current_player):
+  len_board = len(board)
+  uppercases = ascii_uppercase[0:len_board]
+  numbers = digits[1:len_board+1]
+  user_input = input("Choose your cordinates: ")
+  while user_input.lower() != "quit":
+
+    if len(user_input) != 2:
+      print("Invalid cordinates. Only 2 characters.")
+    else:
+      if user_input[0] in uppercases and user_input[1] in numbers:
+        row = uppercases.index(user_input[0])
+        column = numbers.index(user_input[1])
+        if (board[row][column] == "."):
+          return (row, column)
+        else:
+          print("Already taken, try again.")
+      else:
+        print("Invalid cordinates.Try again")
+    user_input = input("Choose your cordinates: ")
+
   """
   Should return the read coordinates for the tic tac toe board from the terminal.
   The coordinates should be in the format  letter, number where the letter is 
