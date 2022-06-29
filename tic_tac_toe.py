@@ -12,13 +12,19 @@ def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     is_game_running = True
+    current_player = ''
     while is_game_running:
         display_board(board)
         
         ### TO DO ###
         # in each new iteration of the while loop the program should 
         # alternate the value of `current_player` from `X` to `O`
-        current_player = 'X'
+        if current_player == "X":
+            current_player = "O"
+        else:
+            current_player = "X"
+
+
         
         ### TO DO ###
         # based on the value of the variables `game_mode` and `current_player` 
