@@ -40,6 +40,14 @@ def main():
         # OR continue the while loop
         winning_player = get_winning_player(board)
         its_a_tie = is_board_full(board)
+        if its_a_tie and winning_player == None:
+            display_board(board)
+            print("It's a tie!")
+            break
+        elif winning_player != None:
+            display_board(board)
+            print("The game has end.", winning_player, " has won.")
+            break
 
 
 if __name__ == "__main__":

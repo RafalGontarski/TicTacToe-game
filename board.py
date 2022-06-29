@@ -20,19 +20,18 @@ def display_board(board):
       continue
     print(main_line)
 
-board = get_empty_board()
-display_board(board)
-
 def is_board_full(board):  # zwraca true lub false
 
   all_characters_in_board = []
   for i in board:
     all_characters_in_board.extend(i)
 
-  if "." in all_characters_in_board:
-    return True
-  else:
-    return False
+  return "." not in all_characters_in_board
+
+  #if "." in all_characters_in_board:
+  #  return False
+  #else:
+  #  return True
 
 # should return True if there are no more empty place on the board,
 # otherwise should return False
@@ -75,21 +74,20 @@ def get_winning_player(board):  # zwraca 'o' albo 'x'
   check_two = True
   first_element_first_diagonal = board[0][0]
   first_element_second_diagonal = board[board_lenght-1][0]
-
-  if first_element_first_diagonal != "." or first_element_second_diagonal != ".":
   
-    for i in range(board_lenght):
-      if board[i][i] != first_element_first_diagonal:
-        check_one = False
-        break
-      if board[i][-(i+1)] != first_element_second_diagonal:
-        check_two = False
-        break
+  for i in range(board_lenght):
+
+    if first_element_first_diagonal == "." or board[i][i] != first_element_first_diagonal:
+      check_one = False
       
-    if check_one:
-      return first_element_first_diagonal
-    if check_two:
-      return first_element_second_diagonal
+    if first_element_second_diagonal == "." or board[i][-(i+1)] != first_element_second_diagonal:
+      check_two = False
+      
+    
+  if check_one:
+    return first_element_first_diagonal
+  if check_two:
+    return first_element_second_diagonal
   # if (board[0][0] + board [1][1] + board[2][2]) == "xxx":
   #   return 'x'
   # if (board[0][0] + board [1][1] + board[2][2]) == "ooo":
@@ -135,9 +133,9 @@ if __name__ == "__main__":
 #        ---+---+---
 #     """)
     
-    display_board(board)
+    #display_board(board)
     
-    get_winning_player(board)
+    #get_winning_player(board)
 
     # board_1 = [
     #   ["X", "O", "."],
