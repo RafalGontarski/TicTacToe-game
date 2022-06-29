@@ -1,3 +1,4 @@
+from random import Random
 from string import ascii_uppercase, digits
 
 
@@ -22,29 +23,37 @@ def get_human_coordinates(board, current_player):
         print("Invalid cordinates.Try again")
     user_input = input("Choose your cordinates: ")
 
-  """
-  Should return the read coordinates for the tic tac toe board from the terminal.
-  The coordinates should be in the format  letter, number where the letter is 
-  A, B or C and the number 1, 2 or 3.
-  If the user enters an invalid coordinate (like Z0 or 1A, A11, sadfdsaf) 
-  than a warning message should appear and the coordinates reading process repeated.
-  If the user enters a coordinate that is already taken on the board.
-  than a warning message should appear and the coordinates reading process repeated.
-  If the user enters the word "quit" in any format of capitalized letters the program
-  should stop.
-  """
-  pass
+  # """
+  # Should return the read coordinates for the tic tac toe board from the terminal.
+  # The coordinates should be in the format  letter, number where the letter is 
+  # A, B or C and the number 1, 2 or 3.
+  # If the user enters an invalid coordinate (like Z0 or 1A, A11, sadfdsaf) 
+  # than a warning message should appear and the coordinates reading process repeated.
+  # If the user enters a coordinate that is already taken on the board.
+  # than a warning message should appear and the coordinates reading process repeated.
+  # If the user enters the word "quit" in any format of capitalized letters the program
+  # should stop.
+  # """
 
+def get_random_ai_coordinates(board):
+  import random
+  board_lenght = len(board)
+  columns = digits[ 0 : board_lenght]
+  row = digits[ 0 : board_lenght]
+  all_characters_in_list = [*board[0], *board[1], *board[2]]
+  
+  while True:
+    computer_coordinate = (int(random.choice(row)), int(random.choice(columns)))
 
-def get_random_ai_coordinates(board, current_player):
-  """
-  Should return a tuple of 2 numbers. 
-  Each number should be between 0-2.
-  The chosen number should be only a free coordinate from the board.
-  If the board is full (all spots taken by either X or O) than "None"
-  should be returned.
-  """
-  pass
+    if board[computer_coordinate[0]][computer_coordinate[1]] == ".":
+      return computer_coordinate
+
+    elif "." not in all_characters_in_list:
+      return None
+
+    else:
+      computer_coordinate = (int(random.choice(row)), int(random.choice(columns)))
+
 
 
 def get_unbeatable_ai_coordinates(board, current_player):

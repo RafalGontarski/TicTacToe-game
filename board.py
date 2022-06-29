@@ -24,12 +24,19 @@ board = get_empty_board()
 display_board(board)
 #w ramach testów, pozdrawiam!!
 
-# def is_board_full(board):
-#   """
-#   should return True if there are no more empty place on the board,
-#   otherwise should return False
-#   """
-#   pass
+def is_board_full(board):
+
+  all_characters_in_board = [*board[0], *board[1], *board[2]]
+  
+  if "." in all_characters_in_board:
+    return True
+  else:
+    return False
+
+  # """
+  # should return True if there are no more empty place on the board,
+  # otherwise should return False
+  # """
 
 
 # def get_winning_player(board):
