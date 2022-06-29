@@ -35,13 +35,15 @@ def get_human_coordinates(board, current_player):
   # should stop.
   # """
 
-def get_random_ai_coordinates(board):
+def get_random_ai_coordinates(board): # zwraca losowe wolne indeksy w krotce np: (1, 0)
   import random
   board_lenght = len(board)
   columns = digits[ 0 : board_lenght]
   row = digits[ 0 : board_lenght]
-  all_characters_in_list = [*board[0], *board[1], *board[2]]
-  
+  all_characters_in_list = []
+  for i in board:
+    all_characters_in_list.extend(i)
+
   while True:
     computer_coordinate = (int(random.choice(row)), int(random.choice(columns)))
 

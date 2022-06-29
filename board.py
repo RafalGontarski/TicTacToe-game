@@ -22,24 +22,49 @@ def display_board(board):
 
 board = get_empty_board()
 display_board(board)
-#w ramach testów, pozdrawiam!!
 
-def is_board_full(board):
+def is_board_full(board):  # zwraca true lub false
 
-  all_characters_in_board = [*board[0], *board[1], *board[2]]
-  
+  all_characters_in_board = []
+  for i in board:
+    all_characters_in_board.extend(i)
+
   if "." in all_characters_in_board:
     return True
   else:
     return False
 
-  # """
-  # should return True if there are no more empty place on the board,
-  # otherwise should return False
-  # """
+# should return True if there are no more empty place on the board,
+# otherwise should return False
+  
 
 
-# def get_winning_player(board):
+def get_winning_player(board):  # zwraca 'o' albo 'x'
+  board_lenght = len(board)
+
+  for row in range(board_lenght):
+    if (board[row][0] + board[row][1] + board[row][2]) == "xxx":
+      return 'x'
+  for row in range(board_lenght):
+    if (board[row][0] + board[row][1] + board[row][2]) == "ooo":
+      return 'o'
+  
+  for column in range(board_lenght):
+    if (board[0][column] + board[1][column] + board[2][column]) == "xxx":
+      return 'x'
+  for column in range(board_lenght):
+    if (board[0][column] + board[1][column] + board[2][column]) == "ooo":
+      return 'o'
+  
+  if (board[0][0] + board [1][1] + board[2][2]) == "xxx":
+    return 'x'
+  if (board[0][0] + board [1][1] + board[2][2]) == "ooo":
+    return 'o'
+
+  if (board[0][2] + board [1][1] + board[2][0]) == "xxx":
+    return 'x'
+  if (board[0][2] + board [1][1] + board[2][0]) == "ooo":
+    return 'o'
 #   """
 #   Should return the player that wins based on the tic tac toe rules.
 #   If no player has won, than "None" is returned.
