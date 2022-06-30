@@ -1,5 +1,5 @@
 from string import digits
-
+from shared import check_input
 
 def get_menu_option():
   # 1 - Lista
@@ -27,13 +27,14 @@ def get_menu_option():
   #   print(f"{key}.", value)
   
   user_input = input("Choose an option: ")
+  check_input(user_input)
+
   while user_input not in choose_range:
     print("Try again")
     user_input = input("Choose an option: ")
-
+    check_input(user_input)
 
   return int(user_input)
-
 
   '''
   Should print a menu with the following options:
