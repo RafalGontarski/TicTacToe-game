@@ -1,4 +1,4 @@
-from random import Random
+import random
 from string import ascii_uppercase, digits
 
 
@@ -36,7 +36,6 @@ def get_human_coordinates(board, current_player):
   # """
 
 def get_random_ai_coordinates(board): # zwraca losowe wolne indeksy w krotce np: (1, 0)
-  import random
   board_lenght = len(board)
   columns = digits[ 0 : board_lenght]
   row = digits[ 0 : board_lenght]

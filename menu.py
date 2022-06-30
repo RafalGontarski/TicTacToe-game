@@ -1,4 +1,40 @@
+from string import digits
+
+
 def get_menu_option():
+  # 1 - Lista
+  menu_options = [
+    "Human vs Human",
+    "Random AI vs Random AI",
+    "Human vs Random AI",
+    "Human vs Unbeatable AI"
+  ]
+  for i in range(len(menu_options)):
+    print(f"{i+1}.", menu_options[i])
+    #print(str(i+1) + ". " + menu_options[i])
+
+  choose_range = digits[1:len(menu_options)+1]
+  #print(digits[1:len(menu_options)+1])
+  # 2 - Słownik
+  # user_choose =	{
+  #   1: "Human vs Human",
+  #   2: "Random AI vs Random AI",
+  #   3: "Human vs Random AI",
+  #   4: "Human vs Unbeatable AI"
+  # }
+
+  # for key, value in user_choose.items():
+  #   print(f"{key}.", value)
+  
+  user_input = input("Choose an option: ")
+  while user_input not in choose_range:
+    print("Try again")
+    user_input = input("Choose an option: ")
+
+
+  return int(user_input)
+
+
   '''
   Should print a menu with the following options:
   1. Human vs Human
